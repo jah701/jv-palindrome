@@ -21,15 +21,14 @@ public class Palindrome {
      * <p>Результат: true</p>
      */
     public boolean isPalindrome(String text) {
+        StringBuilder reversedCut = new StringBuilder();
         text = text.toLowerCase();
-        String[] arr = text.split("\\W");
-        String str = String.join("", arr);
-        char[] arr2 = str.toCharArray();
-        for (int i = 0; i < arr2.length / 2 + 1; i++) {
-            if (arr2[i] != arr2[arr2.length - 1 - i]) {
-                return false;
-            }
-        }
-        return true;
+        String[] splited = text.split("\\W");
+        String joined = String.join("", splited);
+        String firstCut = joined.substring(0, joined.length() / 2);
+        String secondCut = joined.substring(joined.length() / 2 + 1, joined.length());
+        reversedCut.append(secondCut);
+        secondCut = reversedCut.reverse().toString();
+        return firstCut.equals(secondCut);
     }
 }
