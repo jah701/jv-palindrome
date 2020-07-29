@@ -21,6 +21,15 @@ public class Palindrome {
      * <p>Результат: true</p>
      */
     public boolean isPalindrome(String text) {
-        return false;
+        text = text.toLowerCase();
+        String[] arr = text.split("\\W");
+        String str = String.join("", arr);
+        char[] arr2 = str.toCharArray();
+        for (int i = 0; i < arr2.length / 2 + 1; i++) {
+            if (arr2[i] != arr2[arr2.length - 1 - i]) {
+                return false;
+            }
+        }
+        return true;
     }
 }
