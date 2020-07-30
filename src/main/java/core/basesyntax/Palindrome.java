@@ -23,10 +23,9 @@ public class Palindrome {
     public boolean isPalindrome(String text) {
         StringBuilder reversedCut = new StringBuilder();
         text = text.toLowerCase();
-        String[] splited = text.split("\\W");
-        String joined = String.join("", splited);
-        String firstCut = joined.substring(0, joined.length() / 2);
-        String secondCut = joined.substring(joined.length() / 2 + 1, joined.length());
+        String str = text.replaceAll("\\W", "");
+        String firstCut = str.substring(0, str.length() / 2);
+        String secondCut = str.substring(str.length() / 2 + 1, str.length());
         reversedCut.append(secondCut);
         secondCut = reversedCut.reverse().toString();
         return firstCut.equals(secondCut);
