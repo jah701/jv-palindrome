@@ -21,13 +21,10 @@ public class Palindrome {
      * <p>Результат: true</p>
      */
     public boolean isPalindrome(String text) {
-        StringBuilder reversedCut = new StringBuilder();
+        StringBuilder result = new StringBuilder();
         text = text.toLowerCase();
         String str = text.replaceAll("\\W", "");
-        String firstCut = str.substring(0, str.length() / 2);
-        String secondCut = str.substring(str.length() / 2 + 1, str.length());
-        reversedCut.append(secondCut);
-        secondCut = reversedCut.reverse().toString();
-        return firstCut.equals(secondCut);
+        result.append(str);
+        return result.toString().equals(result.reverse().toString());
     }
 }
